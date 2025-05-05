@@ -17,6 +17,15 @@ npm create cloudflare@latest -- my-mcp-server --template=cloudflare/ai/demos/rem
 
 To add your own [tools](https://developers.cloudflare.com/agents/model-context-protocol/tools/) to the MCP server, define each tool inside the `init()` method of `src/index.ts` using `this.server.tool(...)`. 
 
+
+
+## Running evals
+
+The evals package loads an mcp client that then runs the index.ts file, so there is no need to rebuild between tests. You can load environment variables by prefixing the npx command. Full documentation can be found [here](https://www.mcpevals.io/docs).
+
+```bash
+OPENAI_API_KEY=your-key  npx mcp-eval src/evals/evals.ts src/index.ts
+```
 ## Connect to Cloudflare AI Playground
 
 You can connect to your MCP server from the Cloudflare AI Playground, which is a remote MCP client:
